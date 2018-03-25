@@ -1,3 +1,4 @@
+const path = require('path')
 const webpack = require('webpack')
 
 const DEV_PORT = 3001
@@ -12,6 +13,11 @@ module.exports = {
     'webpack/hot/only-dev-server',
     './src/bootstrap'
   ],
+  output: {
+    filename: 'client.bundle.js',
+    path: path.resolve(__dirname, '../build'),
+    publicPath: `/`
+  },
   module: {
     rules: [
       {
@@ -27,6 +33,9 @@ module.exports = {
                 }
               ],
               'react'
+            ],
+            plugins: [
+              'react-hot-loader/babel'
             ]
           }
         },
@@ -43,11 +52,6 @@ module.exports = {
     host: 'localhost',
     port: DEV_PORT,
     historyApiFallback: true,
-    hot: true,
-    open: true
-  },
-  output: {
-    publicPath: `http://localhost:${DEV_PORT}/`,
-    filename: 'client.bundle.js'
+    hot: true
   }
 }
