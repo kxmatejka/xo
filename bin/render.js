@@ -7,17 +7,17 @@ const ENCODING = 'utf8'
 const INPUT_FILE = 'index.html'
 const OUTPUT_FILE = 'build/index.html'
 
-function AppToString() {
+function appToString() {
   return new Promise(resolve => {
     const appElement = React.createElement(app, {
       message: 'Hello from server'
     })
 
-    return resolve( ReactDOMServer.renderToString(appElement))
+    return resolve(ReactDOMServer.renderToString(appElement))
   })
 }
 
-function RenderToHtml(htmlString) {
+function renderToHtml(htmlString) {
   return new Promise((resolve, reject) => {
     fs.readFile(INPUT_FILE, ENCODING, (err, data) => {
       if (err) {
@@ -32,7 +32,7 @@ function RenderToHtml(htmlString) {
   })
 }
 
-function WriteToFile(resultHtml) {
+function writeToFile(resultHtml) {
   return new Promise((resolve, reject) => {
     fs.writeFile(OUTPUT_FILE, resultHtml, ENCODING, err => {
       if (err) {
@@ -44,10 +44,10 @@ function WriteToFile(resultHtml) {
   })
 }
 
-AppToString().then(htmlString => {
-  return RenderToHtml(htmlString)
+appToString().then(htmlString => {
+  return renderToHtml(htmlString)
 }).then(resultHtml => {
-  return WriteToFile(resultHtml)
+  return writeToFile(resultHtml)
 }).then(() => {
   console.log(`${OUTPUT_FILE} successfully created`)
 })
