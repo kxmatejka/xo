@@ -1,4 +1,4 @@
 .idea/
-build/
-!build/.gitkeep
 node_modules/
+build/*
+!build/.gitkeep
