@@ -18,9 +18,10 @@
     "webpack-dev-server": "^3.1.1"
   },
   "scripts": {
-    "prod:build": "webpack --config config/webpack.config.prod.js",
-    "prod:render": "node bin/render.js",
-    "dev:start": "webpack-dev-server --config config/webpack.config.dev.js"
+    "pre-build": "webpack --config config/webpack.config.prod.js",
+    "render": "node bin/render.js",
+    "build": "npm run pre-build && npm run render",
+    "dev": "webpack-dev-server --config config/webpack.config.dev.js"
   },
   "repository": {
     "type": "git",

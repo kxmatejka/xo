@@ -19,9 +19,9 @@ function appToString() {
 
 function renderToHtml(htmlString) {
   return new Promise((resolve, reject) => {
-    fs.readFile(INPUT_FILE, ENCODING, (err, data) => {
-      if (err) {
-        return reject(err)
+    fs.readFile(INPUT_FILE, ENCODING, (error, data) => {
+      if (error) {
+        return reject(error)
       }
 
       return resolve(data.replace(
@@ -34,9 +34,21 @@ function renderToHtml(htmlString) {
 
 function writeToFile(resultHtml) {
   return new Promise((resolve, reject) => {
-    fs.writeFile(OUTPUT_FILE, resultHtml, ENCODING, err => {
-      if (err) {
-        return reject(err)
+    fs.writeFile(OUTPUT_FILE, resultHtml, ENCODING, error => {
+      if (error) {
+        return reject(error)
+      }
+
+      return resolve()
+    })
+  })
+}
+
+function cleanUp() {
+  return new Promise((resolve, reject) => {
+    fs.unlink('./build/server.bundle.js', error => {
+      if (error) {
+        return reject(error)
       }
 
       return resolve()
@@ -49,5 +61,10 @@ appToString().then(htmlString => {
 }).then(resultHtml => {
   return writeToFile(resultHtml)
 }).then(() => {
+  return cleanUp()
+}).then(() => {
   console.log(`${OUTPUT_FILE} successfully created`)
+}).catch(error => {
+  console.error(`rendering failed: ${error}`)
+  process.exit(1)
 })
