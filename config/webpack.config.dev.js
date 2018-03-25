@@ -8,7 +8,6 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   entry: [
-    'react-hot-loader/patch',
     `webpack-dev-server/client?http://localhost:${DEV_PORT}`,
     'webpack/hot/only-dev-server',
     './src/bootstrap'
@@ -16,7 +15,7 @@ module.exports = {
   output: {
     filename: 'client.bundle.js',
     path: path.resolve(__dirname, '../build'),
-    publicPath: `/`
+    publicPath: '/'
   },
   module: {
     rules: [
