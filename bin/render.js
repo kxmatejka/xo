@@ -1,7 +1,7 @@
 const fs = require('fs')
 const React = require('react')
 const ReactDOMServer = require('react-dom/server')
-const app = require('./build/server.bundle').default
+const app = require('../build/server.bundle').default
 
 const ENCODING = 'utf8'
 const INPUT_FILE = 'index.html'
