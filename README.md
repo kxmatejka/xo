@@ -3,6 +3,15 @@ The static stack
 
 Tento stack slouží pro psaní statických stránek v moderním javascriptu s podporou serverového renderování.
 
+# Inicializace
+
+```sh
+git clone git@gitlab.com:kx.matejka/the-static-stack.git {new-project-name}
+cd {new-project-name}
+git remote set-url origin {new-project-git-origin}
+npm install
+```
+
 # Vývoj
 
 Webpack dev server zajistí vývojový server a hot reloading změn.
