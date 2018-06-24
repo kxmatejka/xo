@@ -17,6 +17,11 @@ module.exports = {
     path: path.resolve(__dirname, '../build'),
     publicPath: '/'
   },
+  resolve: {
+    alias: {
+      app: path.resolve(__dirname, '../src')
+    }
+  },
   module: {
     rules: [
       {

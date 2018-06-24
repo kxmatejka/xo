@@ -1,4 +1,4 @@
-import Hello from './components/HelloComponent'
+import Hello from 'app/components/HelloComponent'
 import { hot } from 'react-hot-loader'
 
 class App extends Hello {

@@ -9,6 +9,11 @@ const config = {
     path: path.resolve(__dirname, '../build'),
     libraryTarget: 'umd'
   },
+  resolve: {
+    alias: {
+      app: path.resolve(__dirname, '../src')
+    }
+  },
   module: {
     rules: [
       {
