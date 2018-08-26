@@ -17,8 +17,10 @@ npm install
 Webpack dev server zajistí vývojový server a hot reloading změn.
 
 ```sh
-npm run dev
+npm run watch
 ```
+
+Ve webpacku je nastaven resolve na adresář src/app. Zde je [odkaz](https://blog.jetbrains.com/webstorm/2017/06/webstorm-2017-2-eap-172-2827/) na nastavení webstormu.
 
 # Produkce
 

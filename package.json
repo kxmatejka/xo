@@ -21,7 +21,7 @@
     "pre-build": "webpack --config config/webpack.config.prod.js",
     "render": "node cli/render.js",
     "build": "npm run pre-build && npm run render",
-    "dev": "webpack-dev-server --config config/webpack.config.dev.js"
+    "watch": "webpack-dev-server --config config/webpack.config.dev.js"
   },
   "repository": {
     "type": "git",
