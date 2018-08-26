@@ -20,7 +20,13 @@ Webpack dev server zajistí vývojový server a hot reloading změn.
 npm run watch
 ```
 
-Ve webpacku je nastaven resolve na adresář src/app. Zde je [odkaz](https://blog.jetbrains.com/webstorm/2017/06/webstorm-2017-2-eap-172-2827/) na nastavení webstormu.
+Ve webpacku je nastaven resolve na adresář src/app. Díky tomu je možné používat absolutní import.
+
+```js
+import HelloComponent from 'app/components/HelloComponent'
+```
+
+Nastavení resolve pro [webstorm](https://blog.jetbrains.com/webstorm/2017/06/webstorm-2017-2-eap-172-2827/)
 
 # Produkce
 
