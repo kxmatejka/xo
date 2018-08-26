@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Fragment, PureComponent } from 'react'
 
-export default class Hello extends Component {
+export default class Hello extends PureComponent {
   constructor(props) {
     super(props)
 
@@ -23,11 +23,11 @@ export default class Hello extends Component {
     } = this.props
 
     return (
-      <div>
+      <Fragment>
         <h1>{ message }!</h1>
         <p>{ this.state.count }</p>
         <button onClick={this.handleClickPlus}>+1</button>
-      </div>
+      </Fragment>
     )
   }
 }

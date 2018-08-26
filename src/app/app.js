@@ -1,8 +1,7 @@
-import Hello from 'app/components/HelloComponent'
+import React from 'react'
 import { hot } from 'react-hot-loader'
+import HelloComponent from 'app/components/HelloComponent'
 
-class App extends Hello {
-
-}
+const App = props => (<HelloComponent {...props}/>)
 
 export default hot(module)(App)
