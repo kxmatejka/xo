@@ -1,6 +1,6 @@
 import React, { Fragment, PureComponent } from 'react'
 
-export default class Hello extends PureComponent {
+export default class HelloComponent extends PureComponent {
   constructor(props) {
     super(props)
 
@@ -12,20 +12,23 @@ export default class Hello extends PureComponent {
   }
 
   handleClickPlus() {
-    this.setState({
-      count: this.state.count+1
-    })
+    this.setState(state => ({count: state.count + 1}))
   }
 
   render() {
     const {
-      message
-    } = this.props
+      props: {
+        message
+      },
+      state: {
+        count
+      }
+    } = this
 
     return (
       <Fragment>
         <h1>{ message }!</h1>
-        <p>{ this.state.count }</p>
+        <p>{ count }</p>
         <button onClick={this.handleClickPlus}>+1</button>
       </Fragment>
     )
