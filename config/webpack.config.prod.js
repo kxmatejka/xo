@@ -9,11 +9,6 @@ const config = {
     path: path.resolve(__dirname, '../build'),
     libraryTarget: 'umd'
   },
-  resolve: {
-    alias: {
-      app: path.resolve(__dirname, '../src/app')
-    }
-  },
   module: {
     rules: [
       {
@@ -37,7 +32,7 @@ const client = {
 const server = {
   target: 'node',
   entry: {
-    server: './src/app/app'
+    server: './src/app/index'
   }
 }
 
