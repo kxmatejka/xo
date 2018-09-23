@@ -36,7 +36,7 @@ type State = {|
   count: number
 |}
 
-export default class HelloComponent extends React.PureComponent<Props, State> {
+export class HelloComponent extends React.PureComponent<Props, State> {
   handleClickPlus: Function
 
   constructor(props: Props) {
