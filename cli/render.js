@@ -1,6 +1,7 @@
 const fs = require('fs')
 const React = require('react')
-const ReactDOMServer = require('react-dom/server')
+const { renderToString } = require('react-dom/server')
+const { ServerStyleSheet } = require('styled-components')
 const app = require('../build/server.bundle').default
 
 const ENCODING = 'utf8'
@@ -13,21 +14,33 @@ function appToString() {
       message: 'Hello from server'
     })
 
-    return resolve(ReactDOMServer.renderToString(appElement))
+    const sheet = new ServerStyleSheet()
+    const html = renderToString(sheet.collectStyles(appElement))
+    const style = sheet.getStyleTags()
+
+    return resolve({
+      html,
+      style
+    })
   })
 }
 
-function renderToHtml(htmlString) {
+function renderToHtml(rendered) {
   return new Promise((resolve, reject) => {
     fs.readFile(INPUT_FILE, ENCODING, (error, data) => {
       if (error) {
         return reject(error)
       }
 
-      return resolve(data.replace(
-        '<div id="root"></div>',
-        `<div id="root">${htmlString}</div>`
-      ))
+      return resolve(
+        data.replace(
+          '<div id="root"></div>',
+          `<div id="root">${rendered.html}</div>`
+        ).replace(
+          '<style></style>',
+          rendered.style
+        )
+      )
     })
   })
 }

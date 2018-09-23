@@ -1,8 +1,7 @@
 {
-  "name": "kxmatejka-web",
+  "name": "the-static-stack",
   "version": "1.0.0",
   "description": "My personal website",
-  "main": "build.js",
   "dependencies": {
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
