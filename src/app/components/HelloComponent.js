@@ -1,4 +1,5 @@
-import React, { Fragment, PureComponent } from 'react'
+/* @flow */
+import * as React from 'react'
 import styled from 'styled-components'
 
 const Headline = styled.h1`
@@ -27,8 +28,18 @@ const IncrementButton = styled.button`
   }
 `
 
-export default class HelloComponent extends PureComponent {
-  constructor(props) {
+type Props = {|
+  message: string
+|}
+
+type State = {|
+  count: number
+|}
+
+export default class HelloComponent extends React.PureComponent<Props, State> {
+  handleClickPlus: Function
+
+  constructor(props: Props) {
     super(props)
 
     this.state = {
@@ -53,11 +64,11 @@ export default class HelloComponent extends PureComponent {
     } = this
 
     return (
-      <Fragment>
+      <>
         <Headline>{ message }!</Headline>
         <Counter>state: { count }</Counter>
         <IncrementButton onClick={this.handleClickPlus}>++</IncrementButton>
-      </Fragment>
+      </>
     )
   }
 }
