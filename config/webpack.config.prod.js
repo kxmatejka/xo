@@ -19,18 +19,7 @@ const config = {
       {
         test: /\.jsx?$/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              [
-                'env',
-                {
-                  modules: false
-                }
-              ],
-              'react'
-            ]
-          }
+          loader: 'babel-loader'
         },
         exclude: /node_modules/
       }

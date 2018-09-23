@@ -27,21 +27,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              [
-                'env',
-                {
-                  modules: false
-                }
-              ],
-              'react'
-            ],
-            plugins: [
-              'react-hot-loader/babel'
-            ]
-          }
+          loader: 'babel-loader'
         },
         exclude: /node_modules/
       }

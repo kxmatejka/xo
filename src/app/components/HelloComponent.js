@@ -1,4 +1,31 @@
 import React, { Fragment, PureComponent } from 'react'
+import styled from 'styled-components'
+
+const Headline = styled.h1`
+  color: #3183ff;
+`
+
+const Counter = styled.p`
+  display: inline-block;
+  margin-right: 10px;
+`
+
+const IncrementButton = styled.button`
+  color: #4a4a4a;
+  background: #eeeeee;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    transform: scale(1.10);
+    border: 1px solid #b4b4b4;
+  }
+`
 
 export default class HelloComponent extends PureComponent {
   constructor(props) {
@@ -27,9 +54,9 @@ export default class HelloComponent extends PureComponent {
 
     return (
       <Fragment>
-        <h1>{ message }!</h1>
-        <p>{ count }</p>
-        <button onClick={this.handleClickPlus}>+1</button>
+        <Headline>{ message }!</Headline>
+        <Counter>state: { count }</Counter>
+        <IncrementButton onClick={this.handleClickPlus}>++</IncrementButton>
       </Fragment>
     )
   }
