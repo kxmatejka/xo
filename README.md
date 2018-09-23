@@ -1,7 +1,10 @@
 The static stack
 ================
 
-Tento stack slouží pro psaní statických stránek v moderním javascriptu s podporou serverového renderování.
+Minimalistický stack pro psaní moderního reactu s podporou serverového renderování.
+
+Další příklady konfigurace můžete najít na [este](https://github.com/este/este)
+Production ready stack [next.js](https://github.com/zeit/next.js)
 
 # Inicializace
 
