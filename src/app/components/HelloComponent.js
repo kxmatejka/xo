@@ -37,23 +37,15 @@ type State = {|
 |}
 
 export class HelloComponent extends React.PureComponent<Props, State> {
-  handleClickPlus: Function
-
-  constructor(props: Props) {
-    super(props)
-
-    this.state = {
-      count: 0
-    }
-
-    this.handleClickPlus = this.handleClickPlus.bind(this)
+  state = {
+    count: 0
   }
 
-  handleClickPlus() {
+  handleClickPlus = () => {
     this.setState(state => ({count: state.count + 1}))
   }
 
-  render() {
+  render () {
     const {
       props: {
         message
