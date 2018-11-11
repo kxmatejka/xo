@@ -59,13 +59,15 @@ class Game extends PureComponent {
     winner: null
   }
 
-  checkDirection = (move, points, y, x) => (total, yfn, xfn) => {
+  checkDirection = (move, points, y, x) => (total, ycalculation, xcalculation) => {
     for (let i = 1; i <= WINNER_SCORE; i++) {
-      const yp = yfn(y, i)
-      const xp = xfn(x, i)
+      const yvalue = ycalculation(y, i)
+      const xvalue = xcalculation(x, i)
 
-      if (isInRange(xp, 0, SIZE - 1) && isInRange(yp, 0, SIZE - 1) &&
-        points[yp][xp] && points[yp][xp] === move) {
+      if (
+        isInRange(xvalue, 0, SIZE - 1) && isInRange(yvalue, 0, SIZE - 1) &&
+        points[yvalue][xvalue] && points[yvalue][xvalue] === move
+      ) {
         total++
       } else {
         break
@@ -139,7 +141,7 @@ class Game extends PureComponent {
 
   resetGame = () => {
     const points = this.generatePlayground()
-    this.setState({points, move: 'x', winner: null})
+    this.setState({points, winner: null})
   }
 
   componentWillMount () {
